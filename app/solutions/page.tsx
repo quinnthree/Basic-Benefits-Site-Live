@@ -247,7 +247,7 @@ export default function SolutionsPage() {
               "With Basic Benefits, we reduced our healthcare costs by 30% while ensuring our employees have access to
               quality care."
             </p>
-            <p className="font-semibold">— HR Director, Comfort Keepers</p>
+            <p className="font-semibold">— HR Director, ABC Corporation</p>
           </div>
         </section>
 

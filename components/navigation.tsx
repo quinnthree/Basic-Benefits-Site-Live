@@ -5,16 +5,15 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu } from "lucide-react"
 import { useState, useEffect } from "react"
-import { usePathname, useSearchParams } from "next/navigation"
+import { usePathname } from "next/navigation"
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
-  const searchParams = useSearchParams()
 
   useEffect(() => {
     setIsMenuOpen(false)
-  }, [pathname, searchParams])
+  }, [])
 
   return (
     <nav className="fixed top-0 left-0 right-0 border-b bg-white z-50">
@@ -34,9 +33,6 @@ export function Navigation() {
         <div className="hidden md:flex items-center space-x-10">
           <Link href="/" className="text-base font-medium">
             Home
-          </Link>
-          <Link href="/for-employers" className="text-base font-medium">
-            For Employers
           </Link>
           <Link href="/solutions" className="text-base font-medium">
             Solutions
@@ -60,9 +56,6 @@ export function Navigation() {
           <div className="container py-4 space-y-4">
             <Link href="/" className="block text-base font-medium" onClick={() => setIsMenuOpen(false)}>
               Home
-            </Link>
-            <Link href="/for-employers" className="block text-base font-medium" onClick={() => setIsMenuOpen(false)}>
-              For Employers
             </Link>
             <Link href="/solutions" className="block text-base font-medium" onClick={() => setIsMenuOpen(false)}>
               Solutions

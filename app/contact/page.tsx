@@ -42,7 +42,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Phone:</h3>
-                  <p className="text-gray-600">855-487-6005</p>
+                  <p className="text-gray-600">855-617-8205</p>
                 </div>
               </div>
 

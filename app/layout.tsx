@@ -6,7 +6,6 @@ import { Footer } from "@/components/footer"
 import { Toaster } from "sonner"
 import type React from "react"
 import { Analytics } from "@vercel/analytics/react"
-import { Suspense } from "react"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -41,7 +40,7 @@ export const metadata: Metadata = {
   verification: {
     google: "UUxkYFKmX5bV1fKkx3OQpKTv3RegYvjbaUFpVGNWkFw",
   },
-    generator: 'v0.dev'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -52,9 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${poppins.variable} font-sans`}>
       <body>
-        <Suspense fallback={<div className="h-24 bg-white border-b"></div>}>
-          <Navigation />
-        </Suspense>
+        <Navigation />
         <main>{children}</main>
         <Footer />
         <Toaster position="top-center" />

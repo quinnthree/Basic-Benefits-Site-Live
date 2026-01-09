@@ -93,11 +93,11 @@ export default function Home() {
               <span className="block text-[#7EB6FF]">for Every Business</span>
             </h1>
             <p className="mt-6 text-xl text-gray-200">
-              Plans that cut costs, reduce risk, and make healthcare a breeze—for teams of any size.
+              Simplified health plans and cost-saving solutions—customized for all situations
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Button size="lg" className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white px-8" asChild>
-                <Link href="/for-employers">See Our Plans</Link>
+                <Link href="/contact">Get Started</Link>
               </Button>
               <Button
                 variant="outline"
