@@ -25,10 +25,12 @@ import {
   FileCheck,
 } from "lucide-react"
 
-// Animation variants
+// Animation variants - standardized for premium polish
+const customEase = [0.22, 1, 0.36, 1]
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: customEase } },
 }
 
 const staggerContainer = {
@@ -36,14 +38,14 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
+      staggerChildren: 0.1,
     },
   },
 }
 
 const cardVariant = {
-  hidden: { opacity: 0, y: 18 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: customEase } },
 }
 
 // Insurance option cards data
@@ -209,6 +211,9 @@ export default function HealthInsuranceSmallBusinessPage() {
               <motion.p variants={fadeInUp} className="mt-6 text-lg text-gray-300 max-w-xl mx-auto lg:mx-0">
                 Affordable, compliant benefit solutions for employers with 10-500 employees
               </motion.p>
+              <motion.p variants={fadeInUp} className="mt-3 text-base text-gray-400 max-w-xl mx-auto lg:mx-0">
+                Designed for employers navigating ACA requirements, rising costs, and mixed workforces.
+              </motion.p>
               <motion.div variants={fadeInUp} className="mt-8 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
                 <Button size="lg" className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white px-8 w-full sm:w-auto" asChild>
                   <Link href="/contact">
@@ -248,7 +253,7 @@ export default function HealthInsuranceSmallBusinessPage() {
       </section>
 
       {/* Challenge Section */}
-      <section className="py-16 bg-[#F8FAFC]">
+      <section className="py-20 bg-[#F8FAFC] border-t border-gray-200">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
@@ -300,9 +305,12 @@ export default function HealthInsuranceSmallBusinessPage() {
             <motion.h2 variants={fadeInUp} className="text-3xl font-bold text-center mb-4">
               Understanding Your Health Insurance Options
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-gray-600 text-center mb-8 max-w-2xl mx-auto">
+            <motion.p variants={fadeInUp} className="text-gray-600 text-center mb-4 max-w-2xl mx-auto">
               Explore the range of benefit solutions available to small businesses, each designed to address specific needs
               and compliance requirements.
+            </motion.p>
+            <motion.p variants={fadeInUp} className="text-gray-700 text-center mb-8 max-w-2xl mx-auto font-medium">
+              These options can be offered individually or combined into a single, integrated benefit strategy.
             </motion.p>
 
             {/* Category Bar */}
@@ -444,13 +452,10 @@ export default function HealthInsuranceSmallBusinessPage() {
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <motion.div variants={fadeInUp}>
                 <p className="text-gray-600 mb-6">
-                  Our health insurance solutions are specifically designed for employers who need flexible, cost-effective
-                  options that work for diverse workforce compositions. Whether you're a growing startup or an established
-                  mid-sized company, we have solutions that scale with your business needs.
+                  These solutions are designed for employers who need flexibility, compliance awareness, and cost control — without forcing a one-size-fits-all plan.
                 </p>
                 <p className="text-gray-600">
-                  We understand that not every business fits the traditional group health insurance mold. That's why we
-                  offer alternatives that provide real value while meeting compliance requirements.
+                  Whether you're a growing startup or an established mid-sized company, we have solutions that scale with your business needs.
                 </p>
               </motion.div>
               <motion.div variants={fadeInUp}>
