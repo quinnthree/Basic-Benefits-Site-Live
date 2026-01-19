@@ -4,7 +4,7 @@ import type React from "react"
 export const metadata: Metadata = {
   title: "Health Insurance Options for Small Businesses | Basic Benefits",
   description:
-    "Discover affordable, ACA-compliant health insurance options for small businesses with 10-500 employees. Explore MEC, MV, virtual care, and preventive benefit solutions.",
+    "Explore affordable, compliant health insurance options for small businesses, including MEC, minimum value plans, and virtual-first benefits.",
   keywords: [
     "small business health insurance",
     "health insurance for small businesses",
@@ -22,15 +22,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Health Insurance Options for Small Businesses | Basic Benefits",
     description:
-      "Affordable, compliant benefit solutions for employers with 10-500 employees. Explore MEC, MV, virtual care, and preventive benefits.",
+      "Explore affordable, compliant health insurance options for small businesses, including MEC, minimum value plans, and virtual-first benefits.",
     url: "https://www.basicbenefits.com/solutions/health-insurance-small-business",
     siteName: "Basic Benefits",
     type: "website",
     images: [
       {
-        url: "https://3ximsxvnhk4ndbe8.public.blob.vercel-storage.com/office_image600-01-01-iKhMusjwW17RKFBQmjibwdV8fybjgX.jpg",
-        width: 600,
-        height: 900,
+        url: "https://3ximsxvnhk4ndbe8.public.blob.vercel-storage.com/smallbus_hero_w.jpg",
+        width: 1200,
+        height: 630,
         alt: "Small business leaders discussing employee health benefit options",
       },
     ],
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Health Insurance Options for Small Businesses | Basic Benefits",
     description:
-      "Affordable, compliant benefit solutions for employers with 10-500 employees. Explore MEC, MV, virtual care, and preventive benefits.",
+      "Explore affordable, compliant health insurance options for small businesses, including MEC, minimum value plans, and virtual-first benefits.",
     images: [
-      "https://3ximsxvnhk4ndbe8.public.blob.vercel-storage.com/office_image600-01-01-iKhMusjwW17RKFBQmjibwdV8fybjgX.jpg",
+      "https://3ximsxvnhk4ndbe8.public.blob.vercel-storage.com/smallbus_hero_w.jpg",
     ],
   },
   robots: {

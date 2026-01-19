@@ -78,6 +78,10 @@ const insuranceOptions = [
     icon: FileCheck,
     title: "Minimum Value (MV) Plans",
     description: "Plans designed to meet ACA minimum value/affordability standards.",
+    internalLink: {
+      text: "health insurance options for small businesses",
+      href: "/solutions/health-insurance-small-business",
+    },
     details: {
       whyEmployersUseIt: ["Support employer mandate strategy", "Lower cost alternative to richer plans", "Balance cost and compliance"],
       bestFor: ["ACA-applicable employers", "Cost-conscious organizations", "Compliance-focused businesses"],
@@ -357,6 +361,16 @@ export default function HealthInsuranceSmallBusinessPage() {
                       </div>
                       <h3 className="text-lg font-semibold mb-2">{option.title}</h3>
                       <p className="text-gray-600 text-sm mb-4">{option.description}</p>
+
+                      {option.internalLink && (
+                        <p className="text-sm text-gray-600 mb-4">
+                          Learn more about{" "}
+                          <Link href={option.internalLink.href} className="text-blue-600 hover:underline">
+                            {option.internalLink.text}
+                          </Link>
+                          .
+                        </p>
+                      )}
 
                       {option.details.whenItMakesSense && (
                         <div className="mb-3">
