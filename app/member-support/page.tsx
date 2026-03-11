@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { CreditCard, MapPin, Pill, Video, Phone, Mail, ArrowRight, ExternalLink, Smartphone, CheckCircle2 } from "lucide-react"
+import { CreditCard, MapPin, Pill, Video, Phone, Mail, ArrowRight, ExternalLink, Smartphone, CheckCircle2, FileText, Download } from "lucide-react"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
 // Animation variants
@@ -378,10 +378,89 @@ export default function MemberSupportPage() {
                     </p>
                   </AccordionContent>
                 </AccordionItem>
+                <AccordionItem value="docs-3" className="bg-white rounded-lg shadow-sm border-0 px-4">
+                  <AccordionTrigger className="text-left font-medium hover:no-underline">
+                    How do I submit a claim?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600">
+                    <p>Download the Claim Form or Out-of-Network Claim Form from the Submit a Claim section below. Complete all four sections and attach your Statement of Services from your provider. Email the completed form to{" "}
+                      <a href="mailto:claims@sbmamec.com" className="text-blue-600 hover:underline">claims@sbmamec.com</a>. 
+                      Allow 5–10 business days for processing.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
               </Accordion>
             </motion.div>
           </motion.div>
 
+        </div>
+      </section>
+
+      {/* Submit a Claim Section */}
+      <section id="submit-claim" className="py-16 bg-white scroll-mt-24">
+        <div className="max-w-[1400px] mx-auto px-4">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeInUp} className="text-center mb-10">
+              <h2 className="text-xl font-semibold text-blue-800 mb-3">Submit a Claim</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Download the appropriate form, complete all sections, and email it with your Statement of Services to{" "}
+                <a href="mailto:claims@sbmamec.com" className="text-blue-600 hover:underline">claims@sbmamec.com</a>.
+              </p>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
+              {/* Card 1 - Claim Form */}
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <div className="bg-blue-50 rounded-lg p-3 w-fit mb-4">
+                  <FileText className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Claim Form</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Use for standard benefit claims covered under your plan's in-network services.
+                </p>
+                <a
+                  href="https://3ximsxvnhk4ndbe8.public.blob.vercel-storage.com/SBMA%20Claim%20Forms/SBMA%20-%20Claim_Form%201.pdf"
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-blue-600 text-blue-600 hover:bg-blue-50 rounded-lg px-4 py-2 text-sm font-medium transition-colors"
+                >
+                  <Download className="w-4 h-4" />
+                  Download Form
+                </a>
+              </div>
+
+              {/* Card 2 - Out-of-Network Claim Form */}
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <div className="bg-blue-50 rounded-lg p-3 w-fit mb-4">
+                  <FileText className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Out-of-Network Claim Form</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Use when your provider is not in the PHCS network and you paid out of pocket.
+                </p>
+                <a
+                  href="https://3ximsxvnhk4ndbe8.public.blob.vercel-storage.com/SBMA%20Claim%20Forms/SBMA%20-%20Out_of_Network_Claim_Form.pdf"
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-blue-600 text-blue-600 hover:bg-blue-50 rounded-lg px-4 py-2 text-sm font-medium transition-colors"
+                >
+                  <Download className="w-4 h-4" />
+                  Download Form
+                </a>
+              </div>
+            </motion.div>
+
+            <motion.p variants={fadeInUp} className="text-sm text-gray-500 mt-6 text-center max-w-[900px] mx-auto">
+              Completed forms can be emailed to <a href="mailto:claims@sbmamec.com" className="text-blue-600 hover:underline">claims@sbmamec.com</a> or mailed to: SBMA, Attn: Member Claims, 2307 Fenton Parkway #107-126, San Diego, CA 92108.
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
