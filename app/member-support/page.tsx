@@ -179,18 +179,18 @@ export default function MemberSupportPage() {
                     <p className="mb-4">Your provider search link depends on your plan. Look for the PHCS logo on your ID card, then use the link that matches your plan type:</p>
                     <ul className="space-y-2 mb-4">
                       <li>
-                        <a href="https://multiplan.com/sbmapreventiveservices" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline inline-flex items-center gap-1">
-                          WellCare (MEC Preventive Only) <ExternalLink className="w-3 h-3" />
+                        <a href="https://www.multiplan.com/sbmapreventiveservices" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline inline-flex items-center gap-1">
+                          Wellcare MEC <ExternalLink className="w-3 h-3" />
                         </a>
                       </li>
                       <li>
-                        <a href="https://multiplan.com/sbmaspecificservices" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline inline-flex items-center gap-1">
-                          VitalCare, EliteCare, PrimeCare <ExternalLink className="w-3 h-3" />
+                        <a href="https://www.multiplan.com/sbmaspecificservices" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline inline-flex items-center gap-1">
+                          Flexcare, Keycare, Vitalcare MEC <ExternalLink className="w-3 h-3" />
                         </a>
                       </li>
                       <li>
-                        <a href="https://multiplan.com/sbmapa" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline inline-flex items-center gap-1">
-                          Advantage MV, Premium MV, Max MV <ExternalLink className="w-3 h-3" />
+                        <a href="https://www.multiplan.com/sbmapa" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline inline-flex items-center gap-1">
+                          Essential, Premium, and Max MVP <ExternalLink className="w-3 h-3" />
                         </a>
                       </li>
                     </ul>
@@ -239,17 +239,17 @@ export default function MemberSupportPage() {
                     <p className="mb-4">Your formulary link depends on your plan:</p>
                     <ul className="space-y-2">
                       <li>
-                        <a href="https://sbmabenefits.com/purerx-standard" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline inline-flex items-center gap-1">
-                          VitalCare, EliteCare, PrimeCare <ExternalLink className="w-3 h-3" />
+                        <a href="https://www.sbmabenefits.com/purerx-standard" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline inline-flex items-center gap-1">
+                          Flexcare, Keycare, Vitalcare MEC <ExternalLink className="w-3 h-3" />
                         </a>
                       </li>
                       <li>
-                        <a href="https://sbmabenefits.com/purerx-base" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline inline-flex items-center gap-1">
-                          Advantage MV, Premium MV, Max MV <ExternalLink className="w-3 h-3" />
+                        <a href="https://www.sbmabenefits.com/purerx-base" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline inline-flex items-center gap-1">
+                          Essential, Premium, and Max MVP <ExternalLink className="w-3 h-3" />
                         </a>
                       </li>
                       <li>
-                        <span className="text-gray-700">WellCare — PureRx Discount Program (up to 80% off, not a copay plan)</span>
+                        <span className="text-gray-700">Wellcare — PureRx Discount Program (up to 80% off, not a copay plan)</span>
                       </li>
                     </ul>
                   </AccordionContent>
