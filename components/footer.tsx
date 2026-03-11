@@ -46,10 +46,10 @@ export function Footer() {
               <Link href="/member-support">Member Support</Link>
             </li>
             <li>
-              <Link href="/member-support#id-card-coverage">ID Card & Coverage</Link>
+              <Link href="/member-support#id-card">ID Card & Coverage</Link>
             </li>
             <li>
-              <Link href="/member-support#finding-provider">Find a Provider</Link>
+              <Link href="/member-support#provider">Find a Provider</Link>
             </li>
             <li>
               <Link href="/member-support#virtual-care">Virtual Care</Link>
