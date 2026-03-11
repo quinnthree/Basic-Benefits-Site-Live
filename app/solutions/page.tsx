@@ -212,22 +212,22 @@ export default function SolutionsPage() {
                   </p>
                   <h4 className="font-semibold">Plan Options:</h4>
                   <ul className="space-y-2">
-                    <li className="flex items-center gap-3 text-gray-600">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <li className="flex items-start gap-3 text-gray-600">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
                       <span>
                         <strong>Minimum Essential Coverage (MEC)</strong> – Covers preventive care, wellness visits,
                         immunizations, and screenings.
                       </span>
                     </li>
-                    <li className="flex items-center gap-3 text-gray-600">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <li className="flex items-start gap-3 text-gray-600">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
                       <span>
                         <strong>MEC+ Plans</strong> – Adds urgent care, specialist visits, and behavioral health
                         support.
                       </span>
                     </li>
-                    <li className="flex items-center gap-3 text-gray-600">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <li className="flex items-start gap-3 text-gray-600">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
                       <span>
                         <strong>Minimum Value Plans (MV)</strong> – Comprehensive coverage including hospitalization,
                         surgery, and prescriptions.
