@@ -9,19 +9,22 @@ export function Footer() {
       <div className="container py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
         <div className="space-y-4">
           <h3 className="font-bold text-lg">Basic Benefits</h3>
-          <p className="text-sm text-gray-300">Simplified healthcare solutions for every workforce</p>
+          <p className="text-sm text-gray-300">Modern benefits built for the way people work today.</p>
         </div>
         <div>
           <h4 className="font-semibold mb-4">Services</h4>
           <ul className="space-y-2 text-sm text-gray-300">
             <li>
-              <Link href="/solutions#virtual-primary-care">Virtual Primary Care</Link>
+              <Link href="/solutions#virtual-care">Virtual Primary Care</Link>
             </li>
             <li>
-              <Link href="/solutions#mec-mv-plans">MEC & MV Plans</Link>
+              <Link href="/solutions#mec-plans">MEC Plans</Link>
             </li>
             <li>
-              <Link href="/solutions#ichra-plans">ICHRA Plans</Link>
+              <Link href="/solutions#mvp-plans">Minimum Value Plans</Link>
+            </li>
+            <li>
+              <Link href="/solutions#wellness">GLP-1 & Wellness</Link>
             </li>
           </ul>
         </div>
@@ -75,7 +78,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-gray-800">
-        <div className="container py-4 text-sm text-gray-300">© 2025 Basic Benefits. All rights reserved.</div>
+        <div className="container py-4 text-sm text-gray-300">© 2026 Basic Benefits. All rights reserved.</div>
       </div>
     </footer>
   )

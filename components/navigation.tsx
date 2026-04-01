@@ -40,8 +40,18 @@ export function Navigation() {
           <Link href="/services" className="text-base font-medium">
             Services
           </Link>
+          <Link href="/brokers" className="text-base font-medium text-[#16B2F7]">
+            For Brokers
+          </Link>
           <Link href="/contact" className="text-base font-medium">
             Contact
+          </Link>
+          <Link 
+            href="/proposal" 
+            className="text-[#16B2F7] text-[13px] font-semibold px-4 py-1.5 rounded-lg border border-[#16B2F7] hover:bg-[#16B2F7] hover:text-[#000836] transition-colors"
+            style={{ fontFamily: "var(--font-sans)" }}
+          >
+            Get a Quote
           </Link>
           <Button variant="default" asChild>
             <Link href="/contact">Get Started</Link>
@@ -63,8 +73,18 @@ export function Navigation() {
             <Link href="/services" className="block text-base font-medium" onClick={() => setIsMenuOpen(false)}>
               Services
             </Link>
+            <Link href="/brokers" className="block text-base font-medium text-[#16B2F7]" onClick={() => setIsMenuOpen(false)}>
+              For Brokers
+            </Link>
             <Link href="/contact" className="block text-base font-medium" onClick={() => setIsMenuOpen(false)}>
               Contact
+            </Link>
+            <Link 
+              href="/proposal" 
+              className="block text-center text-[#16B2F7] text-[13px] font-semibold px-4 py-2 rounded-lg border border-[#16B2F7]"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Get a Quote
             </Link>
             <Button variant="default" className="w-full" asChild>
               <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
