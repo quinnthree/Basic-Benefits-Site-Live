@@ -146,7 +146,7 @@ export default function BrokersPage() {
       </section>
 
       {/* SECTION 2: URGENCY STRIP */}
-      <section className="bg-[#16B2F7]" style={{ padding: "32px 0" }}>
+      <section className="bg-[#16B2F7] -mt-px" style={{ padding: "32px 0" }}>
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div className="max-w-[560px]">
