@@ -29,8 +29,6 @@ export default function ContactPage() {
                   <p className="text-gray-600">
                     917 Lily Creek Rd
                     <br />
-                    First Floor
-                    <br />
                     Louisville, KY 40243
                   </p>
                 </div>
