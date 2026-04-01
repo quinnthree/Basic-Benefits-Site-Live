@@ -142,7 +142,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* LEFT COLUMN - Flow Diagram */}
             <div className="flex flex-col items-center lg:items-start">
               <div className="flex flex-col items-center">
@@ -214,7 +214,7 @@ export default function ServicesPage() {
             </div>
 
             {/* RIGHT COLUMN - Value Statements */}
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col">
               {[
                 {
                   title: "Backed by institutional infrastructure.",
@@ -601,22 +601,22 @@ export default function ServicesPage() {
               {
                 icon: FileCheck,
                 title: "Proposal Materials",
-                body: "Branded benefit summaries, plan comparison sheets, and employer ROI narratives available for every plan tier.",
+                body: "Branded benefit summaries, plan comparison sheets, and employer ROI narratives for every plan tier.",
               },
               {
                 icon: Zap,
                 title: "Fast Quote Turnaround",
-                body: "Submit a case and receive a custom quote within one business day. Group size, industry, and components all factored in.",
+                body: "Submit a case and receive a custom quote within one business day.",
               },
               {
                 icon: GraduationCap,
                 title: "Product Training",
-                body: "Direct access to plan details, compliance requirements, and objection handling for every product in the stack.",
+                body: "Direct access to plan details, compliance requirements, and objection handling.",
               },
               {
                 icon: Lock,
                 title: "Your Brand on the Relationship",
-                body: "We operate behind the scenes. Your name stays on the client. We never go direct without you.",
+                body: "Your name stays on the client. We never go direct without you.",
               },
             ].map((item, index) => (
               <div key={index} className="text-center">
