@@ -14,7 +14,7 @@ const services = [
     icon: <Stethoscope className="w-6 h-6 text-blue-500" />,
     subtitle: "Complete Care. Zero Copay.",
     description:
-      "Primary care, urgent care, and behavioral health — all virtual, all $0 copay. Dedicated PCPs, at-home labs, chronic care management, therapy, psychiatry, and medication management available within 48 hours. Plus EAP support for counseling, legal guidance, and financial assistance — 8 on-demand sessions per condition.",
+      "Complete virtual care with $0 copay — primary, urgent, and behavioral health. Plus EAP support for counseling, legal, and financial guidance.",
     features: [
       "Virtual Primary Care with dedicated PCP & at-home labs",
       "24/7 Urgent Care — avg. 10-min wait, NCQA licensed",
@@ -59,11 +59,9 @@ const services = [
     description:
       "The benefits your employees actually talk about. GLP-1 and peptide access, cardiometabolic coaching, digital wellness tools, and generic Rx coverage at $0–$15 copay across 65K+ pharmacy locations. Add virtual dental, virtual pet care, and a full lifestyle savings platform.",
     features: [
-      "GLP-1 & Peptide Access — async DTC program",
-      "Digital Wellness Hub — coaching, nutrition, cardiometabolic tools",
+      "GLP-1 & Peptide Access + Cardiometabolic Coaching",
       "Prescription Benefit — $0–$15 generic copay, 65K+ locations",
-      "Virtual Dental — AI diagnostics + 70K+ provider discount network",
-      "Virtual Pet Care — 24/7 licensed vet access, all 50 states",
+      "Virtual Dental + Virtual Pet Care",
       "Lifestyle Discounts — pharmacy, imaging, concerts, hotels, retail",
     ],
     note: "Not just healthcare. A platform your employees will actually use.",
