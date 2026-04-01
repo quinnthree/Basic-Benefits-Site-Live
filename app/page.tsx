@@ -78,51 +78,166 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-[#1B2741] pt-20">
-        <div className="absolute inset-0">
-          <svg
-            className="absolute bottom-0 left-0 right-0 w-full"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 320"
-            preserveAspectRatio="none"
-          >
-            <path
-              fill="#1e2b47"
-              fillOpacity="0.8"
-              d="M0,128L48,144C96,160,192,192,288,192C384,192,480,160,576,165.3C672,171,768,213,864,218.7C960,224,1056,192,1152,186.7C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            ></path>
-            <path
-              fill="#232f4c"
-              fillOpacity="0.6"
-              d="M0,256L48,245.3C96,235,192,213,288,202.7C384,192,480,192,576,181.3C672,171,768,149,864,160C960,171,1056,213,1152,218.7C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            ></path>
-            <path
-              fill="#283352"
-              fillOpacity="0.4"
-              d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            ></path>
-          </svg>
+      <div 
+        className="relative overflow-hidden pt-20 min-h-[92vh]"
+        style={{
+          backgroundColor: '#000836',
+          backgroundImage: `
+            radial-gradient(ellipse 600px 600px at 85% 15%, rgba(22,178,247,0.18), transparent),
+            radial-gradient(circle 1.5px at center, rgba(255,255,255,0.06) 1.5px, transparent 1.5px)
+          `,
+          backgroundSize: '100% 100%, 24px 24px',
+        }}
+      >
+        <div className="container relative z-10 mx-auto px-4 py-16 sm:px-6 lg:py-24">
+          {/* Two Column Layout */}
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-16">
+            {/* Left Column - Text Content */}
+            <div className="flex-1 max-w-xl">
+              {/* Section Label */}
+              <p 
+                className="text-[#16B2F7] text-xs font-bold uppercase mb-4"
+                style={{ letterSpacing: '3px', fontFamily: 'var(--font-sans)' }}
+              >
+                2026 BENEFITS PROGRAM
+              </p>
+              
+              {/* Headline */}
+              <h1 
+                className="text-white font-extrabold"
+                style={{ 
+                  fontSize: 'clamp(40px, 5.5vw, 68px)',
+                  letterSpacing: '-1.5px',
+                  lineHeight: 1.1,
+                  fontFamily: 'var(--font-sans)'
+                }}
+              >
+                <span className="block">Benefits Built for the</span>
+                <span className="block italic text-[#16B2F7]">Modern Workforce</span>
+              </h1>
+              
+              {/* Subheadline */}
+              <p 
+                className="mt-6 text-white/75 font-light max-w-[520px]"
+                style={{ 
+                  lineHeight: 1.75,
+                  fontSize: '1.125rem',
+                  fontFamily: 'var(--font-sans)'
+                }}
+              >
+                A complete virtual care and benefits platform — built for employer groups, associations, and the modern workforce.
+              </p>
+              
+              {/* Audience Pills */}
+              <div className="flex flex-wrap gap-3 mt-6">
+                {['Employer Groups', 'Associations', 'Chamber Groups', 'Direct-to-Consumer'].map((pill) => (
+                  <span 
+                    key={pill}
+                    className="px-4 py-1.5 rounded-full text-white text-[13px]"
+                    style={{
+                      border: '1px solid rgba(22,178,247,0.35)',
+                      backgroundColor: 'rgba(22,178,247,0.08)',
+                      fontFamily: 'var(--font-sans)'
+                    }}
+                  >
+                    {pill}
+                  </span>
+                ))}
+              </div>
+              
+              {/* CTA Buttons */}
+              <div className="flex flex-wrap items-center gap-4 mt-8">
+                <Button 
+                  size="lg" 
+                  className="bg-[#16B2F7] hover:bg-[#14a0dc] text-[#000836] font-semibold px-8 py-3 rounded-lg"
+                  asChild
+                >
+                  <Link href="/contact">Get Started</Link>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="bg-transparent text-white font-semibold px-8 py-3 rounded-lg hover:bg-white/10"
+                  style={{ border: '1.5px solid rgba(255,255,255,0.4)' }}
+                  asChild
+                >
+                  <Link href="/contact">Build a Proposal →</Link>
+                </Button>
+              </div>
+            </div>
+            
+            {/* Right Column - Stat Cards */}
+            <div className="flex-1 max-w-lg">
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { number: '$0', label: 'Copay for virtual primary, urgent & behavioral care' },
+                  { number: '9', label: 'Fully integrated benefit components — one platform' },
+                  { number: '65K+', label: 'Retail pharmacy locations nationwide' },
+                  { number: '10 min', label: 'Average wait time for urgent care consult' },
+                ].map((stat, index) => (
+                  <div 
+                    key={index}
+                    className="p-6 rounded-xl"
+                    style={{
+                      backgroundColor: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(22,178,247,0.2)',
+                      borderTop: '3px solid #16B2F7',
+                    }}
+                  >
+                    <p 
+                      className="text-[#16B2F7] font-extrabold"
+                      style={{ fontSize: '42px', fontFamily: 'var(--font-sans)' }}
+                    >
+                      {stat.number}
+                    </p>
+                    <p 
+                      className="text-white/65 mt-2"
+                      style={{ 
+                        fontSize: '13px', 
+                        lineHeight: 1.6,
+                        fontFamily: 'var(--font-sans)'
+                      }}
+                    >
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="container relative z-10 mx-auto px-4 py-32 sm:px-6">
-          <div className="mx-auto text-center max-w-3xl">
-            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
-              <span className="block">Affordable Healthcare Benefits</span>
-              <span className="block text-[#7EB6FF]">for Every Business</span>
-            </h1>
-            <p className="mt-6 text-xl text-gray-200">
-              Simplified health plans and cost-saving solutions—customized for all situations
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button size="lg" className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white px-8" asChild>
-                <Link href="/contact">Get Started</Link>
-              </Button>
+        
+        {/* Proposal Strip */}
+        <div 
+          className="relative z-10 mt-8"
+          style={{
+            backgroundColor: 'rgba(22,178,247,0.08)',
+            borderTop: '1px solid rgba(22,178,247,0.2)',
+          }}
+        >
+          <div className="container mx-auto px-4 sm:px-6 py-5">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 text-center lg:text-left">
+              <div className="max-w-[560px]">
+                <p 
+                  className="text-[#16B2F7] text-[11px] font-bold uppercase mb-1"
+                  style={{ letterSpacing: '2px', fontFamily: 'var(--font-sans)' }}
+                >
+                  CUSTOM PRICING AVAILABLE
+                </p>
+                <p 
+                  className="text-white/65 text-[13px]"
+                  style={{ fontFamily: 'var(--font-sans)' }}
+                >
+                  Employer groups, associations, and large cases receive tailored quotes based on group size, selected components, and distribution model.
+                </p>
+              </div>
               <Button
                 variant="outline"
-                size="lg"
-                className="border-gray-400 text-gray-400 hover:bg-gray-700 hover:text-gray-200 px-8"
+                className="bg-transparent text-[#16B2F7] font-semibold px-6 py-2.5 rounded-lg hover:bg-[#16B2F7]/10 mx-auto lg:mx-0"
+                style={{ border: '1.5px solid #16B2F7' }}
                 asChild
               >
-                <Link href="/services">Learn More</Link>
+                <Link href="/contact">Build a Proposal →</Link>
               </Button>
             </div>
           </div>
