@@ -43,14 +43,14 @@ const services = [
     icon: <Building2 className="w-6 h-6 text-blue-500" />,
     subtitle: "Broader Coverage. Still Affordable.",
     description:
-      "Step up from MEC with hospitalization, specialist visits, and expanded coverage — while maintaining cost predictability. MV Plans satisfy the ACA's minimum value threshold and give employees meaningful protection beyond preventive care.",
+      "Step up from MEC with a true Minimum Value Plan — hospitalization, specialist visits, and expanded coverage that satisfies the ACA's minimum value threshold. Bronze-level major medical designed for cost-conscious employers.",
     features: [
       "Hospitalization & specialist visit coverage",
       "Satisfies ACA minimum value threshold",
       "Pairs with Virtual Care bundle for full coverage story",
-      "Ideal for employers replacing or supplementing major medical",
+      "Standalone bronze-level major medical coverage",
     ],
-    note: "More coverage. Same predictable cost structure.",
+    note: "Real major medical coverage. At a price that works.",
   },
   {
     title: "Wellness, Weight Loss & Lifestyle",
