@@ -18,14 +18,34 @@ export default function BrokersPage() {
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+    setSubmitError(null)
+
+    try {
+      const response = await fetch("/api/broker-partner", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setIsSubmitted(true)
+      } else {
+        setSubmitError("Something went wrong. Please email us at info@basicbenefits.com")
+        console.error("Broker partner submission error:", result.error)
+      }
+    } catch (error) {
+      setSubmitError("Something went wrong. Please email us at info@basicbenefits.com")
+      console.error("Broker partner submission error:", error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -824,6 +844,15 @@ export default function BrokersPage() {
                   >
                     {isSubmitting ? "Submitting..." : "Request Partnership Access →"}
                   </Button>
+
+                  {submitError && (
+                    <p
+                      className="text-center text-[13px] mt-4"
+                      style={{ color: "#EF4444", fontFamily: "var(--font-sans)" }}
+                    >
+                      {submitError}
+                    </p>
+                  )}
                 </form>
               )}
             </div>
