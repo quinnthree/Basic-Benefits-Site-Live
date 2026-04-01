@@ -245,6 +245,8 @@ export default function ProposalPage() {
   const [formData, setFormData] = useState<FormData>(initialFormData)
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const updateFormData = (field: keyof FormData, value: string | boolean | string[]) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
@@ -301,9 +303,35 @@ export default function ProposalPage() {
 
   const handleSubmit = async () => {
     if (validateStep(4)) {
-      // Here you would typically send the data to your backend
-      console.log("Form submitted:", formData)
-      setIsSubmitted(true)
+      setIsSubmitting(true)
+      setSubmitError(null)
+
+      try {
+        const response = await fetch("/api/proposal", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...formData,
+            basePlanName: getSelectedPlanName(),
+            addOnsDisplay: getSelectedAddOns(),
+            groupTypeLabel: getGroupTypeLabel(),
+          }),
+        })
+
+        const result = await response.json()
+
+        if (result.success) {
+          setIsSubmitted(true)
+        } else {
+          setSubmitError("Something went wrong. Please email us directly at info@basicbenefits.com")
+          console.error("Proposal submission error:", result.error)
+        }
+      } catch (error) {
+        setSubmitError("Something went wrong. Please email us directly at info@basicbenefits.com")
+        console.error("Proposal submission error:", error)
+      } finally {
+        setIsSubmitting(false)
+      }
     }
   }
 
@@ -1360,20 +1388,30 @@ export default function ProposalPage() {
                     >
                       Back
                     </Button>
-                    <Button
-                      onClick={handleSubmit}
-                      className="bg-[#16B2F7] hover:bg-[#14a0dc] text-[#000836] font-semibold px-8 py-3 rounded-lg"
-                      style={{ fontFamily: "var(--font-sans)" }}
-                    >
-                      Submit Proposal Request <ChevronRight className="w-4 h-4 ml-1" />
-                    </Button>
-                  </div>
+  <Button
+  onClick={handleSubmit}
+  disabled={isSubmitting}
+  className="bg-[#16B2F7] hover:bg-[#14a0dc] text-[#000836] font-semibold px-8 py-3 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+  style={{ fontFamily: "var(--font-sans)" }}
+  >
+  {isSubmitting ? "Submitting..." : "Submit Proposal Request"} {!isSubmitting && <ChevronRight className="w-4 h-4 ml-1" />}
+  </Button>
+  </div>
 
-                  <p
-                    className="text-center text-[#828993] text-[12px] italic mt-6"
-                    style={{ fontFamily: "var(--font-sans)" }}
-                  >
-                    No commitment required. Custom quote only. No spam.
+  {submitError && (
+    <p
+      className="text-center text-[13px] mt-4"
+      style={{ color: "#EF4444", fontFamily: "var(--font-sans)" }}
+    >
+      {submitError}
+    </p>
+  )}
+  
+  <p
+  className="text-center text-[#828993] text-[12px] italic mt-6"
+  style={{ fontFamily: "var(--font-sans)" }}
+  >
+  No commitment required. Custom quote only. No spam.
                   </p>
                 </div>
               )}
