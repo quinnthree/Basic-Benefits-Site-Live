@@ -40,6 +40,9 @@ export function Navigation() {
           <Link href="/services" className="text-base font-medium">
             Services
           </Link>
+          <Link href="/brokers" className="text-base font-medium text-[#16B2F7]">
+            For Brokers
+          </Link>
           <Link href="/contact" className="text-base font-medium">
             Contact
           </Link>
@@ -62,6 +65,9 @@ export function Navigation() {
             </Link>
             <Link href="/services" className="block text-base font-medium" onClick={() => setIsMenuOpen(false)}>
               Services
+            </Link>
+            <Link href="/brokers" className="block text-base font-medium text-[#16B2F7]" onClick={() => setIsMenuOpen(false)}>
+              For Brokers
             </Link>
             <Link href="/contact" className="block text-base font-medium" onClick={() => setIsMenuOpen(false)}>
               Contact
