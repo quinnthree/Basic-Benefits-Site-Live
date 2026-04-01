@@ -119,7 +119,7 @@ export default function Home() {
                 style={{ borderRadius: '8px', padding: '12px', fontFamily: 'var(--font-sans)' }}
                 asChild
               >
-                <Link href="/contact">Build a Proposal →</Link>
+                <Link href="/proposal">Build a Proposal →</Link>
               </Button>
             </div>
 
@@ -732,7 +732,7 @@ export default function Home() {
             style={{ borderRadius: '8px', fontFamily: 'var(--font-sans)' }}
             asChild
           >
-            <Link href="/contact">Build a Proposal →</Link>
+            <Link href="/proposal">Build a Proposal →</Link>
           </Button>
         </div>
 
