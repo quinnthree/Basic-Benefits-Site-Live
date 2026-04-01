@@ -358,15 +358,20 @@ export async function POST(request: Request) {
     });
 
     if (!resend) {
-      console.warn("Resend API key not configured.");
+      console.log("[v0] Resend API key not configured, returning error");
       return NextResponse.json({
         success: false,
         error: "Email service not configured",
       }, { status: 500 });
     }
 
+    console.log("[v0] Attempting to send email via Resend...");
+    console.log("[v0] From:", FROM_EMAIL);
+    console.log("[v0] To:", TO_EMAIL);
+    console.log("[v0] Subject:", subject);
+
     try {
-      const { error } = await resend.emails.send({
+      const { data, error } = await resend.emails.send({
         from: FROM_EMAIL,
         to: [TO_EMAIL],
         subject,
@@ -374,20 +379,24 @@ export async function POST(request: Request) {
         reply_to: email,
       });
 
+      console.log("[v0] Resend response - data:", data);
+      console.log("[v0] Resend response - error:", error);
+
       if (error) {
-        console.error("Resend API error:", error);
+        console.error("[v0] Resend API error:", error);
         return NextResponse.json({
           success: false,
           error: error.message || "Failed to send email",
         }, { status: 500 });
       }
 
+      console.log("[v0] Email sent successfully");
       return NextResponse.json({
         success: true,
         message: "Contact form submitted successfully",
       });
     } catch (emailError) {
-      console.error("Error sending email via Resend:", emailError);
+      console.error("[v0] Error sending email via Resend:", emailError);
       return NextResponse.json({
         success: false,
         error: emailError instanceof Error ? emailError.message : "Failed to send email",
