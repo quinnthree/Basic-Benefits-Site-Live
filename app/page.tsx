@@ -210,7 +210,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 2: BROKER URGENCY STRIP */}
-      <section className="bg-[#16B2F7]" style={{ padding: '24px 48px' }}>
+      <section className="bg-[#16B2F7] -mt-px" style={{ padding: '24px 48px' }}>
         <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div style={{ maxWidth: '500px' }}>
@@ -687,10 +687,10 @@ export default function Home() {
       </section>
 
       {/* SECTION 6: DUAL CTA BANNER */}
-      <section className="flex flex-col lg:flex-row">
+      <section className="grid grid-cols-1 lg:grid-cols-2 w-full">
         {/* Left Column - Employer Path */}
         <div
-          className="flex-1 flex flex-col justify-center"
+          className="flex flex-col justify-center"
           style={{ backgroundColor: '#16B2F7', padding: '60px 48px', minHeight: '280px' }}
         >
           <p
@@ -738,7 +738,7 @@ export default function Home() {
 
         {/* Right Column - Broker Path */}
         <div
-          className="flex-1 flex flex-col justify-center"
+          className="flex flex-col justify-center"
           style={{
             backgroundColor: '#000836',
             backgroundImage: `radial-gradient(circle 1.5px at center, rgba(255,255,255,0.06) 1.5px, transparent 1.5px)`,

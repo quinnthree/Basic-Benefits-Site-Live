@@ -78,7 +78,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-gray-800">
-        <div className="container py-4 text-sm text-gray-300">© 2025 Basic Benefits. All rights reserved.</div>
+        <div className="container py-4 text-sm text-gray-300">© 2026 Basic Benefits. All rights reserved.</div>
       </div>
     </footer>
   )
