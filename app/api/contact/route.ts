@@ -1,137 +1,396 @@
-import { NextResponse } from "next/server"
-import { Resend } from "resend"
-import fs from "fs/promises"
-import path from "path"
+import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
-// Initialize Resend with the API key from environment variables
-const resendApiKey = process.env.RESEND_API_KEY
-const resend = resendApiKey ? new Resend(resendApiKey) : null
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Simple function to log submissions as a fallback
-async function logSubmission(data: any) {
-  try {
-    console.log("Form submission received:", JSON.stringify(data, null, 2))
+const FROM_EMAIL = "Basic Benefits <onboarding@basicbenefits.com>";
+const TO_EMAIL = "info@basicbenefits.com";
 
-    // In development, we could also write to a file
-    if (process.env.NODE_ENV === "development") {
-      try {
-        const logsDir = path.join(process.cwd(), "logs")
-        await fs.mkdir(logsDir, { recursive: true })
+const INQUIRY_LABELS: Record<string, string> = {
+  general: "General Inquiry",
+  employer_quote: "Employer / Group Quote",
+  broker_partnership: "Broker or GA Partnership",
+  member_support: "Member Support",
+  billing: "Billing Question",
+  media: "Media / Press",
+  other: "Other",
+};
 
-        const logFile = path.join(logsDir, "form-submissions.log")
-        const logEntry = `${new Date().toISOString()} - ${JSON.stringify(data)}\n`
+function buildEmailHtml({
+  inquiryType,
+  firstName,
+  lastName,
+  email,
+  phone,
+  companyName,
+  message,
+  timestamp,
+}: {
+  inquiryType: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  companyName?: string;
+  message: string;
+  timestamp: string;
+}) {
+  const inquiryLabel =
+    INQUIRY_LABELS[inquiryType] || inquiryType || "Not specified";
 
-        await fs.appendFile(logFile, logEntry)
-      } catch (fileError) {
-        console.error("Error writing to log file:", fileError)
-      }
-    }
+  const priorityFlag =
+    inquiryType === "broker_partnership" || inquiryType === "employer_quote"
+      ? `
+    <tr>
+      <td style="padding: 12px 32px 0;">
+        <div style="
+          background: #FEF9C3;
+          border: 1px solid #854D0E;
+          border-radius: 6px;
+          padding: 10px 16px;
+          font-family: Arial, sans-serif;
+          font-size: 13px;
+          font-weight: bold;
+          color: #854D0E;
+        ">
+          ⚡ ${
+            inquiryType === "broker_partnership"
+              ? "BROKER PARTNERSHIP INQUIRY"
+              : "EMPLOYER QUOTE REQUEST"
+          } — prioritize response
+        </div>
+      </td>
+    </tr>`
+      : "";
 
-    return true
-  } catch (error) {
-    console.error("Error logging submission:", error)
-    return false
-  }
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="
+  margin: 0;
+  padding: 0;
+  background-color: #F7F8F9;
+  font-family: Arial, sans-serif;
+">
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td align="center" style="padding: 32px 16px;">
+        <table width="600" cellpadding="0" cellspacing="0" style="
+          max-width: 600px;
+          width: 100%;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        ">
+
+          <!-- HEADER -->
+          <tr>
+            <td style="
+              background-color: #000836;
+              padding: 24px 32px;
+              border-bottom: 3px solid #16B2F7;
+            ">
+              <div style="
+                color: #16B2F7;
+                font-size: 11px;
+                font-weight: bold;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                margin-bottom: 6px;
+              ">BASIC BENEFITS</div>
+              <div style="
+                color: #ffffff;
+                font-size: 22px;
+                font-weight: bold;
+                margin-bottom: 4px;
+              ">Contact Form Submission</div>
+              <div style="
+                color: rgba(255,255,255,0.45);
+                font-size: 12px;
+              ">${timestamp}</div>
+            </td>
+          </tr>
+
+          <!-- PRIORITY FLAG -->
+          ${priorityFlag}
+
+          <!-- INQUIRY TYPE BADGE -->
+          <tr>
+            <td style="padding: 20px 32px 0;">
+              <div style="
+                display: inline-block;
+                background: #E0F5FE;
+                border: 1px solid #0277A8;
+                border-radius: 6px;
+                padding: 8px 16px;
+                font-size: 13px;
+                font-weight: bold;
+                color: #0277A8;
+              ">RE: ${inquiryLabel}</div>
+            </td>
+          </tr>
+
+          <!-- SUMMARY BLOCK -->
+          <tr>
+            <td style="padding: 16px 32px 0;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="
+                background: #ffffff;
+                border: 1px solid #D0D2D8;
+                border-radius: 8px;
+                overflow: hidden;
+              ">
+                <tr>
+                  <td style="padding: 24px;">
+                    <!-- Name -->
+                    <table width="100%" cellpadding="0" cellspacing="0" 
+                      style="margin-bottom: 12px;">
+                      <tr>
+                        <td width="140" style="
+                          color: #828993;
+                          font-size: 13px;
+                          vertical-align: top;
+                          padding-right: 16px;
+                        ">Name</td>
+                        <td style="
+                          color: #000836;
+                          font-size: 13px;
+                          font-weight: bold;
+                        ">${firstName} ${lastName}</td>
+                      </tr>
+                    </table>
+                    <!-- Email -->
+                    <table width="100%" cellpadding="0" cellspacing="0"
+                      style="margin-bottom: 12px;">
+                      <tr>
+                        <td width="140" style="
+                          color: #828993;
+                          font-size: 13px;
+                          vertical-align: top;
+                          padding-right: 16px;
+                        ">Email</td>
+                        <td style="
+                          color: #000836;
+                          font-size: 13px;
+                          font-weight: bold;
+                        ">
+                          <a href="mailto:${email}" style="
+                            color: #16B2F7;
+                            text-decoration: none;
+                          ">${email}</a>
+                        </td>
+                      </tr>
+                    </table>
+                    <!-- Phone -->
+                    <table width="100%" cellpadding="0" cellspacing="0"
+                      style="margin-bottom: 12px;">
+                      <tr>
+                        <td width="140" style="
+                          color: #828993;
+                          font-size: 13px;
+                          vertical-align: top;
+                          padding-right: 16px;
+                        ">Phone</td>
+                        <td style="
+                          color: #000836;
+                          font-size: 13px;
+                          font-weight: bold;
+                        ">${phone || "Not provided"}</td>
+                      </tr>
+                    </table>
+                    <!-- Company -->
+                    <table width="100%" cellpadding="0" cellspacing="0"
+                      style="margin-bottom: 0;">
+                      <tr>
+                        <td width="140" style="
+                          color: #828993;
+                          font-size: 13px;
+                          vertical-align: top;
+                          padding-right: 16px;
+                        ">Company</td>
+                        <td style="
+                          color: #000836;
+                          font-size: 13px;
+                          font-weight: bold;
+                        ">${companyName || "Not provided"}</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- MESSAGE BLOCK -->
+          <tr>
+            <td style="padding: 16px 32px 0;">
+              <div style="
+                background: #F0F9FF;
+                border-left: 3px solid #16B2F7;
+                border-radius: 0 6px 6px 0;
+                padding: 20px 24px;
+              ">
+                <div style="
+                  color: #16B2F7;
+                  font-size: 11px;
+                  font-weight: bold;
+                  letter-spacing: 2px;
+                  text-transform: uppercase;
+                  margin-bottom: 10px;
+                ">MESSAGE</div>
+                <div style="
+                  color: #000836;
+                  font-size: 14px;
+                  line-height: 1.7;
+                  white-space: pre-wrap;
+                ">${message}</div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- ACTION BLOCK -->
+          <tr>
+            <td style="padding: 16px 32px 24px;">
+              <div style="
+                background: #000836;
+                border-radius: 0 0 8px 8px;
+                padding: 20px 24px;
+              ">
+                <div style="
+                  color: rgba(255,255,255,0.65);
+                  font-size: 13px;
+                  margin-bottom: 12px;
+                ">Reply directly to this email 
+                to respond to ${firstName}.</div>
+                <a href="mailto:${email}" style="
+                  display: inline-block;
+                  background: #16B2F7;
+                  color: #000836;
+                  font-size: 13px;
+                  font-weight: bold;
+                  padding: 10px 24px;
+                  border-radius: 6px;
+                  text-decoration: none;
+                ">Reply to ${firstName} →</a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td style="
+              padding: 16px 32px;
+              border-top: 1px solid #D0D2D8;
+              text-align: center;
+            ">
+              <div style="
+                color: #828993;
+                font-size: 11px;
+                margin-bottom: 4px;
+              ">
+                Basic Benefits LLC · 
+                basicbenefits.com · 
+                855-617-8205
+              </div>
+              <div style="color: #828993; font-size: 11px;">
+                Submitted via basicbenefits.com/contact
+              </div>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  `;
 }
 
 export async function POST(request: Request) {
-  console.log("API route called")
   try {
-    const data = await request.json()
+    const body = await request.json();
 
-    // Validate required fields
-    if (!data.fullName || !data.email) {
-      return NextResponse.json({ success: false, error: "Name and email are required" }, { status: 400 })
+    const {
+      inquiryType,
+      firstName,
+      lastName,
+      email,
+      phone,
+      companyName,
+      message,
+    } = body;
+
+    // Validation
+    if (!firstName || !lastName || !email || !message) {
+      return NextResponse.json(
+        { error: "Required fields missing" },
+        { status: 400 }
+      );
     }
 
-    // Always log the submission as a fallback
-    await logSubmission(data)
+    const inquiryLabel =
+      INQUIRY_LABELS[inquiryType] || inquiryType || "General Inquiry";
 
-    // Create email content
-    const emailContent = `
-      <h2>New Contact Form Submission</h2>
-      <p><strong>Name:</strong> ${data.fullName}</p>
-      <p><strong>Email:</strong> ${data.email}</p>
-      ${data.companyName ? `<p><strong>Company:</strong> ${data.companyName}</p>` : ""}
-      ${data.employees ? `<p><strong>Employees:</strong> ${data.employees}</p>` : ""}
-      ${data.message ? `<p><strong>Message:</strong> ${data.message}</p>` : ""}
-      ${data.additionalInfo ? `<p><strong>Additional Info:</strong> ${data.additionalInfo}</p>` : ""}
-      <p><strong>Submitted at:</strong> ${new Date().toLocaleString()}</p>
-    `
+    const subject = `New Contact: ${inquiryLabel} — ${firstName} ${lastName}${
+      companyName ? ` | ${companyName}` : ""
+    }`;
 
-    // Check if Resend is properly initialized
-    if (!resend) {
-      console.warn("Resend API key not configured. Skipping email sending but recording submission.")
-      return NextResponse.json({
-        success: true,
-        message: "Thank you for your submission. We'll be in touch soon!",
-        emailSent: false,
-      })
+    const timestamp = new Date().toLocaleString("en-US", {
+      timeZone: "America/New_York",
+      dateStyle: "full",
+      timeStyle: "short",
+    });
+
+    const html = buildEmailHtml({
+      inquiryType,
+      firstName,
+      lastName,
+      email,
+      phone,
+      companyName,
+      message,
+      timestamp,
+    });
+
+    // Dev mode fallback
+    if (process.env.NODE_ENV === "development" && !process.env.RESEND_API_KEY) {
+      console.log("=== CONTACT FORM SUBMISSION (dev) ===");
+      console.log({ inquiryType, firstName, lastName, email, 
+        phone, companyName, message });
+      return NextResponse.json({ success: true, emailSent: false });
     }
 
-    // Try to send email with Resend
-    try {
-      console.log("Attempting to send email via Resend...")
-      const { data: emailData, error } = await resend.emails.send({
-        from: "Quinn Pearl <quinn.pearl@basicbenefits.com>",
-        to: ["info@basicbenefits.com"],
-        subject: "New Contact Form Submission",
-        html: emailContent,
-        reply_to: data.email,
-      })
+    const { data, error } = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: TO_EMAIL,
+      replyTo: email,
+      subject,
+      html,
+    });
 
-      console.log("Resend API response:", { data: emailData, error })
-
-      if (error) {
-        console.error("Resend API error:", error)
-
-        // If the error is related to the sender domain not being verified, try with the default sender
-        if (error.message?.includes("domain") || error.message?.includes("sender")) {
-          console.log("Trying with default Resend sender domain...")
-          const fallbackResult = await resend.emails.send({
-            from: "Basic Benefits <onboarding@resend.dev>",
-            to: ["info@basicbenefits.com"],
-            subject: "New Contact Form Submission",
-            html: emailContent,
-            reply_to: data.email,
-          })
-
-          if (!fallbackResult.error) {
-            console.log("Email sent successfully with fallback sender")
-            return NextResponse.json({
-              success: true,
-              message: "Thank you for your submission. We'll be in touch soon!",
-              emailSent: true,
-              note: "Used fallback sender domain",
-            })
-          }
-        }
-
-        return NextResponse.json({
-          success: true,
-          message: "Thank you for your submission. We'll be in touch soon!",
-          emailSent: false,
-          error: error.message,
-        })
-      }
-
-      console.log("Email sent successfully via Resend")
-      return NextResponse.json({
-        success: true,
-        message: "Thank you for your submission. We'll be in touch soon!",
-        emailSent: true,
-      })
-    } catch (emailError) {
-      console.error("Error sending email via Resend:", emailError)
-      return NextResponse.json({
-        success: true,
-        message: "Thank you for your submission. We'll be in touch soon!",
-        emailSent: false,
-        error: emailError instanceof Error ? emailError.message : String(emailError),
-      })
+    if (error) {
+      console.error("Resend error:", error);
+      return NextResponse.json(
+        { success: false, error: error.message },
+        { status: 500 }
+      );
     }
-  } catch (error) {
-    console.error("API route error:", error)
-    return NextResponse.json({ success: false, error: "An unexpected error occurred" }, { status: 500 })
+
+    return NextResponse.json({
+      success: true,
+      emailSent: true,
+      id: data?.id,
+    });
+
+  } catch (err) {
+    console.error("Contact API error:", err);
+    return NextResponse.json(
+      { success: false, error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }
