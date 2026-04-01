@@ -648,11 +648,17 @@ export default function ServicesPage() {
       </section>
 
       {/* SECTION 6: DUAL CTA BANNER */}
-      <section className="grid grid-cols-1 lg:grid-cols-2 w-full">
+      <section 
+        className="w-full"
+        style={{ 
+          display: "grid", 
+          gridTemplateColumns: "1fr 1fr",
+        }}
+      >
         {/* Left - Employer Path */}
         <div
-          className="flex flex-col justify-center"
-          style={{ backgroundColor: "#16B2F7", padding: "56px 48px", minHeight: "240px" }}
+          className="flex flex-col justify-center max-md:col-span-2"
+          style={{ backgroundColor: "#16B2F7", padding: "48px", minHeight: "240px" }}
         >
           <p
             className="font-bold uppercase mb-3"
@@ -694,12 +700,12 @@ export default function ServicesPage() {
 
         {/* Right - Broker Path */}
         <div
-          className="flex flex-col justify-center"
+          className="flex flex-col justify-center max-md:col-span-2"
           style={{
             backgroundColor: "#000836",
             backgroundImage: `radial-gradient(circle 1.5px at center, rgba(255,255,255,0.06) 1.5px, transparent 1.5px)`,
             backgroundSize: "24px 24px",
-            padding: "56px 48px",
+            padding: "48px",
             minHeight: "240px",
           }}
         >
