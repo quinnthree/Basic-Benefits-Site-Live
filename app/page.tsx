@@ -4,50 +4,69 @@ import { ServiceCarousel } from "@/components/service-carousel"
 import { TestimonialSection } from "@/components/testimonial-section"
 import { RequestProposal } from "@/components/request-proposal"
 import Link from "next/link"
-import { Briefcase, HeartPulse, PiggyBank } from "lucide-react"
+import { Stethoscope, Shield, Building2, Sparkles } from "lucide-react"
 import Script from "next/script"
 import { generateOrganizationSchema } from "@/components/structured-data"
 
 const services = [
   {
-    title: "Virtual Care",
-    icon: <HeartPulse className="w-6 h-6 text-blue-500" />,
-    subtitle: "24/7 Access to Healthcare Professionals",
+    title: "Virtual Care + EAP",
+    icon: <Stethoscope className="w-6 h-6 text-blue-500" />,
+    subtitle: "Complete Care. Zero Copay.",
     description:
-      "Give employees on-demand access to virtual healthcare providers for primary care, urgent care, and behavioral health—all from the convenience of their devices.",
+      "Primary care, urgent care, and behavioral health — all virtual, all $0 copay. Dedicated PCPs, at-home labs, chronic care management, therapy, psychiatry, and medication management available within 48 hours. Plus EAP support for counseling, legal guidance, and financial assistance — 8 on-demand sessions per condition.",
     features: [
-      "Virtual Primary Care with a dedicated doctor",
-      "24/7 Virtual Urgent Care for immediate concerns",
-      "Mental Health & Therapy Support",
+      "Virtual Primary Care with dedicated PCP & at-home labs",
+      "24/7 Urgent Care — avg. 10-min wait, NCQA licensed",
+      "Behavioral Health, Therapy & Psychiatry — $0 copay",
+      "EAP: Counseling, Legal & Financial Guidance",
     ],
-    note: "No appointments needed. No long waits. Just care when you need it.",
+    note: "No appointments. No wait rooms. No copay.",
   },
   {
-    title: "MEC & MV Plans",
-    icon: <Briefcase className="w-6 h-6 text-blue-500" />,
-    subtitle: "ACA-Compliant Coverage for Every Business",
+    title: "MEC Plans",
+    icon: <Shield className="w-6 h-6 text-blue-500" />,
+    subtitle: "ACA-Compliant Coverage for Every Employer",
     description:
-      "Ensure compliance while offering essential, cost-effective healthcare coverage that meets federal requirements.",
+      "Meet your federal mandate obligation without overpaying. Minimum Essential Coverage plans deliver preventive care and wellness benefits at a predictable, fixed cost — protecting your business and your employees.",
     features: [
-      "MEC Plans covering preventive care & wellness",
-      "MEC+ Plans with added benefits like urgent care",
-      "Minimum Value Plans (MV) with hospitalization & specialist visits",
+      "Preventive care & wellness coverage",
+      "Satisfies ACA employer mandate requirements",
+      "Fixed PEPM pricing — no utilization volatility",
+      "Flexible minimum group size",
     ],
-    note: "Flexible, affordable plans designed to protect employees & businesses.",
+    note: "Compliant, affordable, and built to scale.",
     isPopular: true,
   },
   {
-    title: "ICHRA Plans",
-    icon: <PiggyBank className="w-6 h-6 text-blue-500" />,
-    subtitle: "Flexible Health Reimbursement for Employees",
+    title: "Minimum Value Plans",
+    icon: <Building2 className="w-6 h-6 text-blue-500" />,
+    subtitle: "Broader Coverage. Still Affordable.",
     description:
-      "Empower employees to choose the health plan that works best for them, while businesses enjoy tax advantages and cost control.",
+      "Step up from MEC with hospitalization, specialist visits, and expanded coverage — while maintaining cost predictability. MV Plans satisfy the ACA's minimum value threshold and give employees meaningful protection beyond preventive care.",
     features: [
-      "Reimbursement-based health benefits",
-      "Employees choose their preferred ACA-compliant plan",
-      "Seamless administration & virtual card payments",
+      "Hospitalization & specialist visit coverage",
+      "Satisfies ACA minimum value threshold",
+      "Pairs with Virtual Care bundle for full coverage story",
+      "Ideal for employers replacing or supplementing major medical",
     ],
-    note: "A smarter way to offer healthcare—cost-effective & customizable.",
+    note: "More coverage. Same predictable cost structure.",
+  },
+  {
+    title: "Wellness, Weight Loss & Lifestyle",
+    icon: <Sparkles className="w-6 h-6 text-blue-500" />,
+    subtitle: "Built for the Whole Person",
+    description:
+      "The benefits your employees actually talk about. GLP-1 and peptide access, cardiometabolic coaching, digital wellness tools, and generic Rx coverage at $0–$15 copay across 65K+ pharmacy locations. Add virtual dental, virtual pet care, and a full lifestyle savings platform.",
+    features: [
+      "GLP-1 & Peptide Access — async DTC program",
+      "Digital Wellness Hub — coaching, nutrition, cardiometabolic tools",
+      "Prescription Benefit — $0–$15 generic copay, 65K+ locations",
+      "Virtual Dental — AI diagnostics + 70K+ provider discount network",
+      "Virtual Pet Care — 24/7 licensed vet access, all 50 states",
+      "Lifestyle Discounts — pharmacy, imaging, concerts, hotels, retail",
+    ],
+    note: "Not just healthcare. A platform your employees will actually use.",
   },
 ]
 
@@ -132,7 +151,7 @@ export default function Home() {
               Comprehensive healthcare solutions designed for your business
             </p>
           </div>
-          <div className="hidden md:grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {services.map((service, index) => (
               <ImprovedServiceCard key={index} {...service} />
             ))}
