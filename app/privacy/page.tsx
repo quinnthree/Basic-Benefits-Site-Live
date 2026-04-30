@@ -115,7 +115,7 @@ export default function PrivacyPage() {
             <br />
             917 Lily Creek Rd, Louisville, KY 40243
             <br />
-            <a href="https://www.basicbenefits.net" className="text-[#16B2F7] hover:underline">www.basicbenefits.net</a>
+            <a href="https://www.basicbenefits.com" className="text-[#16B2F7] hover:underline">www.basicbenefits.com</a>
             <br />
             <a href="mailto:info@basicbenefits.com" className="text-[#16B2F7] hover:underline">info@basicbenefits.com</a>
             <br />
