@@ -2,145 +2,124 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC] pt-16">
       <div className="container py-12">
-        <h1 className="text-4xl font-bold mb-8 text-center">Privacy Policy</h1>
+        <h1 className="text-4xl font-bold mb-2 text-center">Privacy Policy & Conditions of Disclosure</h1>
+        <p className="text-center text-gray-600 mb-8">Basic Benefits, LLC</p>
         <div className="prose prose-blue max-w-none">
-          <h2 className="text-2xl font-bold mt-8 mb-4">Conditions & Disclosures</h2>
           <p>
-            Your privacy is important to us. We carefully handle your personal and health-related information within the
-            scope of our services and do not sell or disclose this information without your consent, except as required
-            by law.
-          </p>
-          <p className="font-bold">
-            THIS POLICY AND NOTICE DESCRIBES HOW PERSONAL AND HEALTH INFORMATION ABOUT YOU MAY BE USED AND DISCLOSED,
-            AND HOW YOU CAN ACCESS THIS INFORMATION. PLEASE REVIEW IT CAREFULLY.
+            This privacy policy has been compiled to better serve those who are concerned with how their &apos;Personally
+            Identifiable Information&apos; (PII) and Protected Health Information (PHI) are being used online. Please read
+            our policy carefully to get a clear understanding of how we collect, use, protect, or otherwise handle your
+            information in accordance with our website and insurance services.
           </p>
 
-          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 01: Introduction</h2>
+          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 01: Information Collection</h2>
+          <h3 className="text-lg font-semibold mt-4 mb-2">What information do we collect?</h3>
           <p>
-            Basic Benefits, LLC respects and is committed to safeguarding your privacy. We are required by law to
-            maintain the confidentiality of your protected health information (PHI) and give you notice of our privacy
-            practices. This Privacy Policy details how we collect, use, and disclose your information through our
-            services and websites. We also follow state and federal regulations related to privacy and data security.
+            When registering or ordering on our site, you may be asked to enter your name, email address, phone number,
+            Social Security Number, or other details relevant to your insurance enrollment and health benefit experience.
           </p>
+          <h3 className="text-lg font-semibold mt-4 mb-2">When do we collect information?</h3>
           <p>
-            If we make significant changes to this policy, the updated version will be available on our website at
-            www.basicbenefits.net.
-          </p>
-          <p>
-            This policy also outlines how your personal data, non-personal data, and health information may be used in
-            connection with our services.
+            We collect information from you when you register on our site, fill out an enrollment form, use Live Chat,
+            or enter information during a benefit selection process.
           </p>
 
-          <h2 className="text-2xl font-bold mt-8 mb-4">
-            SECTION 02: Risks of Using Electronic Communications and Data Storage
-          </h2>
-          <p>
-            We take multiple steps to protect the security of your information, including electronic communications and
-            health data stored within our systems. However, by using our services, you acknowledge that no system is
-            completely secure. While we use industry-standard safeguards, unauthorized access to your data remains a
-            potential risk.
-          </p>
-          <p>
-            Basic Benefits, LLC does not share your personal data with third parties except as described in this policy.
-            We recommend exercising caution when printing or sharing your information electronically.
-          </p>
-          <p>
-            You may close your account at any time by contacting us. We will follow verification processes to confirm
-            your identity before deleting your data, as permitted by law.
-          </p>
+          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 02: Use of Information</h2>
+          <p>We may use the information we collect to:</p>
+          <ul>
+            <li>Service your requests for insurance enrollment and customer support.</li>
+            <li>Process payments for insurance premiums (such as Zion or MEC plans).</li>
+            <li>Follow up after correspondence via live chat, email, or phone.</li>
+            <li>Comply with state and federal regulations regarding insurance administration and public health reporting.</li>
+          </ul>
 
-          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 03: How We Use and Disclose Your Health Information</h2>
+          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 03: Financial Data & Payment Authorization</h2>
           <p>
-            "Health Information" is data related to your health history, treatment, or payment for healthcare services.
-            The categories below explain how we may use and disclose your health information:
+            As we facilitate the payment of insurance premiums, specific financial protections and authorizations apply:
           </p>
           <ul>
             <li>
-              Treatment: We may share your health information with healthcare providers to facilitate your treatment.
-            </li>
-            <li>Payment: We may use your health information to bill and collect payment for services rendered.</li>
-            <li>
-              Healthcare Operations: Your health information may be used for operational purposes, such as quality
-              assessments or administrative functions, to improve our services.
+              <strong>Payment Processing:</strong> All transactions are processed through secure gateway providers. We do
+              not store or process raw bank account or credit card numbers on our local servers.
             </li>
             <li>
-              Appointment Reminders and Treatment Alternatives: We may contact you with appointment reminders or
-              information about alternative treatments.
+              <strong>Authorization:</strong> By providing your bank information, you authorize us to initiate electronic
+              debits (ACH) for agreed-upon premiums. These transactions are governed by NACHA operating rules.
             </li>
             <li>
-              As Required by Law: We will disclose your health information when required by federal, state, or local
-              law.
+              <strong>Security:</strong> Sensitive/credit information is encrypted via Secure Socket Layer (SSL)
+              technology and contained behind secured networks accessible only by a limited number of persons with
+              special access rights.
             </li>
           </ul>
-          <p>
-            Other situations where we may use your health information include to avert a serious health or safety
-            threat, for public health activities, to comply with health oversight activities, and in legal disputes.
-          </p>
 
-          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 04: How We Use and Disclose Non-Personal Data</h2>
-          <p>
-            "Non-Personal Data" is data that does not identify you directly. We may use this data for operational and
-            analytical purposes. For example, we use server log files, cookies, and IP addresses to understand how our
-            services are used.
-          </p>
-
-          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 05: Your Rights Regarding Your Health Information</h2>
-          <p>
-            You have specific rights under state and federal laws related to your health information. These rights
-            include:
-          </p>
+          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 04: Health Information (PHI)</h2>
+          <p>We are required by law to maintain the confidentiality of your health information.</p>
           <ul>
-            <li>Right to Inspect and Copy: You may request copies of your health records.</li>
-            <li>Right to Amend: You can request corrections to your health information.</li>
             <li>
-              Right to Request Restrictions: You may request that we limit the use or disclosure of your health
-              information.
+              <strong>Treatment & Payment:</strong> We may share your health information with healthcare providers to
+              facilitate treatment or with financial institutions to facilitate payment for services rendered.
             </li>
             <li>
-              Right to Confidential Communications: You may request to receive communications in a specific manner or at
-              a certain location.
+              <strong>Operations:</strong> Your information may be used for administrative functions to improve our
+              benefit offerings.
             </li>
             <li>
-              Right to be Notified of a Breach: If there is a breach of your unsecured health information, we will
-              notify you as required by law.
+              <strong>Your Rights:</strong> You have the right to inspect your records, request amendments to inaccurate
+              data, and receive notification in the event of a data breach.
             </li>
           </ul>
 
-          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 06: Changes to this Policy</h2>
+          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 05: Text Messaging & Mobile Privacy</h2>
           <p>
-            We reserve the right to change this Privacy Policy at any time. Updated policies will be available on our
-            website, and continued use of our services indicates your acceptance of any changes.
+            No mobile information will be shared with third parties or affiliates for marketing/promotional purposes.
+            All the above categories exclude text messaging originator opt-in data and consent; this information will
+            not be shared with any third parties, excluding aggregators and providers of the Text Message services
+            necessary to facilitate your account.
           </p>
 
-          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 07: Third-Party Service Providers</h2>
+          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 06: Third-Party Disclosure & Links</h2>
           <p>
-            We work with third-party vendors, such as analytics services, to enhance our offerings. These vendors may
-            use cookies or other tools to collect and process data in accordance with their privacy policies.
+            We do not sell, trade, or otherwise transfer your PII to outside parties for marketing purposes. This does
+            not include website hosting partners and other parties who assist us in operating our website or conducting
+            our business (such as insurance underwriters and payment clearinghouses), so long as those parties agree to
+            keep this information confidential.
           </p>
 
-          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 08: Special Situations</h2>
+          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 07: Cookies & Tracking</h2>
+          <p>We use cookies to help remember and process enrollment selections and understand user preferences.</p>
+          <ul>
+            <li>
+              <strong>Google:</strong> We use Google Analytics and first-party cookies to compile data regarding user
+              interactions on our site.
+            </li>
+            <li>
+              <strong>Do Not Track:</strong> We honor Do Not Track (DNT) signals and do not plant cookies or use
+              advertising when a DNT browser mechanism is in place.
+            </li>
+            <li>
+              <strong>Behavioral Tracking:</strong> We do not allow third-party behavioral tracking.
+            </li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 08: COPPA (Children Online Privacy Protection Act)</h2>
           <p>
-            In certain circumstances, we may disclose personal information to investigate legal matters, comply with
-            court orders, or protect the rights and safety of others.
+            We do not specifically market to children under the age of 13 years old. We comply with COPPA requirements
+            regarding the collection of personal information from minors.
           </p>
 
-          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 09: In-App Permissions and Data Usage</h2>
+          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 09: Contacting Us</h2>
+          <p>If there are any questions regarding this privacy policy, you may contact us using the information below:</p>
           <p>
-            Our applications may request access to your device's camera, microphone, or other features to facilitate
-            services such as video consultations. These permissions can be revoked at any time in your device's
-            settings.
-          </p>
-
-          <h2 className="text-2xl font-bold mt-8 mb-4">SECTION 10: Contact Information</h2>
-          <p>For questions or concerns about this policy, please contact:</p>
-          <p>
-            Basic Benefits, LLC
-            <br />
-            info@basicbenefits.com
+            <strong>Basic Benefits, LLC</strong>
             <br />
             917 Lily Creek Rd, Louisville, KY 40243
             <br />
-            855-617-8205
+            <a href="https://www.basicbenefits.com" className="text-[#16B2F7] hover:underline">www.basicbenefits.com</a>
+            <br />
+            <a href="mailto:info@basicbenefits.com" className="text-[#16B2F7] hover:underline">info@basicbenefits.com</a>
+            <br />
+            <a href="tel:855-617-8205" className="text-[#16B2F7] hover:underline">855-617-8205</a>
           </p>
         </div>
       </div>
